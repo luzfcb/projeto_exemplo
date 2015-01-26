@@ -1,0 +1,19 @@
+{% include "base/base.html" %}
+
+{% block head %} {% endblock head %}
+
+{% block body %}
+    <p></p>
+    <a href="{% url 'pessoa:create' %}">Adicionar nova pessoa</a>
+    <p>
+        {% if object_list %}
+            {% for p in object_list %}
+                <p>
+                    {{ p.ddd }} - {{ p.cpf }} - {{ p.cep }}
+                </p>
+            {% endfor %}
+        {% else %}
+            Não há cadastros
+        {% endif %}
+    </p>
+{% endblock %}

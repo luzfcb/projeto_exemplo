@@ -1,0 +1,29 @@
+{% include "base/base.html" %}
+
+
+{% block head %}
+
+    {{ super }} {# aqui eu carrego todo o conteudo do bloco head do html base.html #}
+
+    {% if form %}
+        {% if form.media %}
+            {{ form.media }}
+        {% endif %}
+    {% endif %}
+{% endblock head %}
+
+
+{% block body %}
+    <p>
+        <a href="{% url 'pessoa:list' %}">Voltar</a>
+    </p>
+    {% if form %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <input type="submit" value="Salvar">
+    </form>
+
+    {% endif %}
+{% endblock %}

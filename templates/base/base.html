@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        {% block head %}
+           {# usa o jquery que já vem com o django#}
+            <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+        {% endblock head %}
+    </head>
+    <body>
+        {% block boby %} {% endblock boby %}
+    </body>
+</html>
